@@ -72,23 +72,29 @@
     </head>
     
     <body>
-      <div id = "Header">
-        <div class = "container">
-            <div id = "headertext">
-              <h1>Build-A-Blog</h1>
+            <div>
+                <a href='/login'>Log In</a>
+                <a href='/signup'>Sign Up</a>
+                <a href='/logout'>Log Out</a>
             </div>
-            <div id = "navArea">
-                <ul id = "nav">
-                  <a href = "/"><li>Home</li></a>
-                  <a href = "new_post"><li>Write New Entry</li><a>
+
+        <header>
+            <a href='/'>Blogger List</a>
+            <a href='/newpost'>New Blog</a>
+            <a href='/blog'>Home</a>
+        </header>
+            
+            {% with messages = get_flashed_messages() %}
+                <ul>
+                {% for message in messages %}
+                    <li>{{message}}</li>    
+                {% endfor %}
                 </ul>
-            </div>
-        </div>
-    </div>
-    <div id='content'>
-        {% block content %}
-        {% endblock %}
-    </div>
+            {% endwith %} -->
+
+        <main>
+            {% block content %}
+            {% endblock %} 
+        </main>
     </body>
-    
-    </html>
+</html>
